@@ -455,24 +455,3 @@ def IVFFN_Einstein_Plus(ifn1,ifn2):
     newIVFFN.NMDL = pow(pithy_einstein_T(pow(ifn1.NMDL,3),pow(ifn2.NMDL,3)),1/3)
     newIVFFN.NMDU = pow(pithy_einstein_T(pow(ifn1.NMDU,3),pow(ifn2.NMDU,3)),1/3)
     return newIVFFN
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
