@@ -28,12 +28,12 @@ operators based on Archimedes' t-parametrization, including algebraic t-parametr
 PFN,IVPFN,FFN,IVFFN are same as IFN and IVIFN.
 
 ```python
-ifn = IFN(0.5,0.3)							#the definition of Intuitionistic fuzzy number
-ivifn = IVIFN(0.5,0.7,0.1,0.3)				#the definition of Interval-Valued Intuitionistic fuzzy number
+ifn = IFN(0.5,0.3)					#the definition of Intuitionistic fuzzy number
+ivifn = IVIFN(0.5,0.7,0.1,0.3)					#the definition of Interval-Valued Intuitionistic fuzzy number
 
-ifn.show()									#show the Intuitionistic fuzzy number
+ifn.show()					#show the Intuitionistic fuzzy number
 >>(0.5, 0.3)
-ivifn.show()								#show the Interval-Valued Intuitionistic fuzzy number
+ivifn.show()					#show the Interval-Valued Intuitionistic fuzzy number
 >>([0.5, 0.7], [0.1, 0.3])
 
 # Intuitionistic fuzzy number Power and Times operations, show() means show the IFN.
@@ -95,12 +95,12 @@ List all method descriptions.
 毕达哥拉斯模糊数，区间值毕达哥拉斯模糊数，费马模糊数，区间值费马模糊数运算与直觉模糊，区间值直觉模糊数一样。
 
 ```python
-ifn = IFN(0.5,0.3)							#直觉模糊数定义
-ivifn = IVIFN(0.5,0.7,0.1,0.3)				#区间值直觉模糊数定义
+ifn = IFN(0.5,0.3)					#直觉模糊数定义
+ivifn = IVIFN(0.5,0.7,0.1,0.3)					#区间值直觉模糊数定义
 
-ifn.show()									#显示直觉模糊数
+ifn.show()					#显示直觉模糊数
 >>(0.5, 0.3)
-ivifn.show()								#显示区间值直觉模糊数
+ivifn.show()					#显示区间值直觉模糊数
 >>([0.5, 0.7], [0.1, 0.3])
 
 # 直觉模糊数的幂和倍运算，show()函数表示显示结果
