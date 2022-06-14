@@ -6,22 +6,33 @@
 
 ### The definition of basic fuzzy numbers and basic operations are included.
 
+#### FNs:
+
 1. Definition of Intuitionistic fuzzy numbers and the four basic operations.
 2. Definition of interval-valued Intuitionistic fuzzy numbers and the four basic operations.
 3. Definition of Pythagorean fuzzy numbers and the four basic operations.
 4. Definition of interval-valued Pythagorean fuzzy numbers and the four basic operations.
 5. Definition of Fermatean fuzzy numbers and the four basic operations.
 6. Definition of interval-valued Fermatean fuzzy numbers and the four basic operations.
-7. Interaction Intuitionistic fuzzy basic operations.
-8. Interaction interval-valued Intuitionistic fuzzy basic operations.
-9. Interaction Pythagorean fuzzy basic operations.
-10. Interaction interval-valued Pythagorean fuzzy basic operations.
-11. Interaction Fermatean fuzzy basic operations.
-12. Interaction interval-valued Fermatean fuzzy basic operations.
+
+#### InteractionFNs:
+
+1. Interaction Intuitionistic fuzzy basic operations.
+2. Interaction interval-valued Intuitionistic fuzzy basic operations.
+3. Interaction Pythagorean fuzzy basic operations.
+4. Interaction interval-valued Pythagorean fuzzy basic operations.
+5. Interaction Fermatean fuzzy basic operations.
+6. Interaction interval-valued Fermatean fuzzy basic operations.
+
+#### DHFEs:
+
+1. Definition of Dual Hesitant Intuitionistic Fuzzy Elements and the four basic operations.
+2. Definition of Dual Hesitant Pythagorean Fuzzy Elements and the four basic operations.
+3. Definition of Dual Hesitant Fermatean Fuzzy Elements and the four basic operations.
+
+
 
 operators based on Archimedes' t-parametrization, including algebraic t-parametrization and t-remaining parametrization and Einstein t-parametrization and t-remaining parametrization
-
-
 
 ### Example of the Definition and Operations of Fuzzy Number
 
@@ -75,18 +86,31 @@ List all method descriptions.
 
 ### 包括了基本模糊数的定义和基本运算：
 
+#### FNs:
+
 1. 直觉模糊数的定义和四项基本运算；
 2. 区间值直觉模糊数的定义和四项基本运算；
 3. 毕达哥拉斯模糊数的定义和四项基本运算；
 4. 区间值毕达哥拉斯模糊数的定义和四项基本运算；
 5. 费马模糊数的定义和四项基本运算；
 6. 区间值费马模糊数的定义和四项基本运算。
-7. 交互直觉模糊基本运算
-8. 交互区间值直觉模糊基本运算
-9. 交互毕达哥拉斯模糊基本运算
-10. 交互区间值毕达哥拉斯模糊基本运算
-11. 交互费马模糊基本运算
-12. 交互区间值费马模糊基本运算
+
+#### InteractionFNs:
+
+1. 交互直觉模糊基本运算
+2. 交互区间值直觉模糊基本运算
+3. 交互毕达哥拉斯模糊基本运算
+4. 交互区间值毕达哥拉斯模糊基本运算
+5. 交互费马模糊基本运算
+6. 交互区间值费马模糊基本运算
+
+#### DHFEs:
+
+1. 对偶犹豫直觉模糊元素的定义和四项基本运算
+2. 对偶犹豫毕达哥拉斯模糊元素的定义和四项基本运算
+3. 对偶犹豫费马模糊元素的定义和四项基本运算
+
+
 
 基于阿基米德 t-范数下的运算法则，包括代数 t-范数和 t-余范数以及爱因斯坦 t-范数和 t-余范数。
 
