@@ -19,7 +19,12 @@ class DHIFE:
             self = None
     
     def show(self):
-        print('DHIFE:{\n' + 'MD: '+str(self.MD) + ',\n' + 'NMD:' + str(self.NMD) +'}')
+        mds,nmds = [],[]
+        for md in self.MD:
+            mds.append(float(format(md,'.4f')))
+        for nmd in self.NMD:
+            nmds.append(float(format(nmd,'.4f')))
+        print('DHIFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -102,7 +107,12 @@ class DHPFE:
             self = None
     
     def show(self):
-        print('DHPFE:{\n' + 'MD: '+str(self.MD) + ',\n' + 'NMD:' + str(self.NMD) +'}')
+        mds,nmds = [],[]
+        for md in self.MD:
+            mds.append(float(format(md,'.4f')))
+        for nmd in self.NMD:
+            nmds.append(float(format(nmd,'.4f')))
+        print('DHPFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -194,7 +204,12 @@ class DHFFE:
             self = None
     
     def show(self):
-        print('DHFFE:{\n' + 'MD: '+str(self.MD) + ',\n' + 'NMD:' + str(self.NMD) +'}')
+        mds,nmds = [],[]
+        for md in self.MD:
+            mds.append(float(format(md,'.4f')))
+        for nmd in self.NMD:
+            nmds.append(float(format(nmd,'.4f')))
+        print('DHFFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
