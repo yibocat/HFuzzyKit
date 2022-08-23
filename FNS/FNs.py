@@ -16,7 +16,7 @@ class IFN:
             self=None
         
     def show(self):
-        print('IFN:'+str(float(format(self.MD,'.4f')),float(format(self.NMD,'.4f'))))
+        print('IFN:'+'('+format(self.MD,'.4f')+','+format(self.NMD,'.4f')+')')
     
     def getQRung(self):
         return 1
@@ -121,7 +121,7 @@ class PFN:
             self=None
         
     def show(self):
-        print('PFN:'+str(float(format(self.MD,'.4f')),float(format(self.NMD,'.4f'))))
+        print('PFN:'+'('+format(self.MD,'.4f')+','+format(self.NMD,'.4f')+')')
 
     def getQRung(self):
         return 2
@@ -225,7 +225,7 @@ class FFN:
             self=None
         
     def show(self):
-        print('FFN:'+str(float(format(self.MD,'.4f')),float(format(self.NMD,'.4f'))))
+        print('FFN:'+'('+format(self.MD,'.4f')+','+format(self.NMD,'.4f')+')')
     
     def getQRung(self):
         return 3

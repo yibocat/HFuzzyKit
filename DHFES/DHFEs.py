@@ -9,7 +9,7 @@ from Archimedean import *
 class DHIFE:
     def __init__(self,MD,NMD):
         try:
-            assert (not MD and not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1)
+            assert (not MD or not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1)
             self.MD = MD
             self.NMD = NMD
         except AssertionError as er:
@@ -32,11 +32,34 @@ class DHIFE:
         return 1
         
     def isEmpty(self):
-        ## 判断隶属度和非隶属度是否为空
+        ## 判断隶属度和非隶属度是否全为空
         if not self.MD and not self.NMD:
             return True
         else:
             return False
+    def isEmpty_half(self):
+        ## 判断隶属度和非隶属度是否有空
+        if not self.MD or not self.NMD:
+            return True
+        else:
+            return False
+        
+    def comp(self):
+        ## 对偶犹豫模糊元素的补
+        newDHFE = DHIFE([],[])
+        if not self.MD and self.NMD:
+            newDHFE.MD = []
+            for nmd in self.NMD:
+                newDHFE.NMD.append(1-nmd)
+        elif self.MD and not self.NMD:
+            newDHFE.NMD = []
+            for md in self.MD:
+                newDHFE.MD.append(1-md)
+        else:
+            newDHFE.MD = self.NMD
+            newDHFE.NMD = self.MD
+        newDHFE.show()
+        return newDHFE
     
     def DHFEs_Qsort(self):
         ## 对偶犹豫模糊元素隶属度与非隶属度排序
@@ -128,7 +151,7 @@ class DHIFE:
 class DHPFE:
     def __init__(self,MD,NMD):
         try:
-            assert (not MD and not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)**2+max(NMD)**2<=1 and 0<=min(MD)**2+min(NMD)**2<=1)
+            assert (not MD or not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)**2+max(NMD)**2<=1 and 0<=min(MD)**2+min(NMD)**2<=1)
             self.MD = MD
             self.NMD = NMD
         except AssertionError as er:
@@ -156,6 +179,29 @@ class DHPFE:
             return True
         else:
             return False
+        
+    def isEmpty_half(self):
+        ## 判断隶属度和非隶属度是否有空
+        if not self.MD or not self.NMD:
+            return True
+        else:
+            return False
+    def comp(self):
+        ## 对偶犹豫毕达哥拉斯模糊元素的补
+        newDHFE = DHPFE([],[])
+        if not self.MD and self.NMD:
+            newDHFE.MD = []
+            for nmd in self.NMD:
+                newDHFE.NMD.append(1-nmd)
+        elif self.MD and not self.NMD:
+            newDHFE.NMD = []
+            for md in self.MD:
+                newDHFE.MD.append(1-md)
+        else:
+            newDHFE.MD = self.NMD
+            newDHFE.NMD = self.MD
+        newDHFE.show()
+        return newDHFE
 
     def DHFEs_Qsort(self):
         ## 对偶犹豫模糊元素隶属度与非隶属度排序
@@ -256,7 +302,7 @@ class DHPFE:
 class DHFFE:
     def __init__(self,MD,NMD):
         try:
-            assert (not MD and not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)**3+max(NMD)**3<=1 and 0<=min(MD)**3+min(NMD)**3<=1)
+            assert (not MD or not NMD) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)**3+max(NMD)**3<=1 and 0<=min(MD)**3+min(NMD)**3<=1)
             self.MD = MD
             self.NMD = NMD
         except AssertionError as er:
@@ -284,6 +330,30 @@ class DHFFE:
             return True
         else:
             return False
+        
+    def isEmpty_half(self):
+        ## 判断隶属度和非隶属度是否有空
+        if not self.MD or not self.NMD:
+            return True
+        else:
+            return False
+        
+    def comp(self):
+        ## 对偶犹豫费马模糊元素的补
+        newDHFE = DHFFE([],[])
+        if not self.MD and self.NMD:
+            newDHFE.MD = []
+            for nmd in self.NMD:
+                newDHFE.NMD.append(1-nmd)
+        elif self.MD and not self.NMD:
+            newDHFE.NMD = []
+            for md in self.MD:
+                newDHFE.MD.append(1-md)
+        else:
+            newDHFE.MD = self.NMD
+            newDHFE.NMD = self.MD
+        newDHFE.show()
+        return newDHFE
 
     def DHFEs_Qsort(self):
         ## 对偶犹豫模糊元素隶属度与非隶属度排序
