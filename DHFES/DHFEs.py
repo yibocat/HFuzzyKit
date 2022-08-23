@@ -25,6 +25,12 @@ class DHIFE:
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
         print('DHIFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
+        print('\n')
+        print('The cardinal number of  MD is %d'%len(mds))
+        print('The cardinal number of NMD is %d'%len(nmds))
+
+    def getQRung(self):
+        return 1
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -113,6 +119,12 @@ class DHPFE:
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
         print('DHPFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
+        print('\n')
+        print('The cardinal number of  MD is %d'%len(mds))
+        print('The cardinal number of NMD is %d'%len(nmds))
+    
+    def getQRung(self):
+        return 2
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -210,6 +222,12 @@ class DHFFE:
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
         print('DHFFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
+        print('\n')
+        print('The cardinal number of  MD is %d'%len(mds))
+        print('The cardinal number of NMD is %d'%len(nmds))
+
+    def getQRung(self):
+        return 3
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -287,129 +305,3 @@ class DHFFE:
             )
         return newDHFFE
     
-##########  Basic multiplication and addition operations
-## Basic multiplication and addition operations
-## Dual Hesitant Intuitionistic Fuzzy Elements
-## Algebraic Basic Operations 
-def DHIFE_Algebraic_Multiply(dhfe1,dhfe2):
-    newDHIFE = DHIFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHIFE.MD.append(pithy_algebraic_T(md1,md2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHIFE.NMD.append(pithy_algebraic_S(nmd1,nmd2))
-    return newDHIFE
-def DHIFE_Algebraic_Plus(dhfe1,dhfe2):
-    newDHIFE = DHIFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHIFE.MD.append(pithy_algebraic_S(md1,md2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHIFE.NMD.append(pithy_algebraic_T(nmd1,nmd2))
-    return newDHIFE
-
-## Einstein Basic Operations
-def DHIFE_Einstein_Multiply(dhfe1,dhfe2):
-    newDHIFE = DHIFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHIFE.MD.append(pithy_einstein_T(md1,md2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHIFE.NMD.append(pithy_einstein_S(nmd1,nmd2))
-    return newDHIFE
-def DHIFE_Einstein_Plus(dhfe1,dhfe2):
-    newDHIFE = DHIFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHIFE.MD.append(pithy_einstein_S(md1,md2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHIFE.NMD.append(pithy_einstein_T(nmd1,nmd2))
-    return newDHIFE
-
-## Basic multiplication and addition operations
-## Dual Hesitant Pythagorean Fuzzy Elements
-## Algebraic Basic Operations 
-def DHPFE_Algebraic_Multiply(dhfe1,dhfe2):
-    newDHPFE = DHPFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHPFE.MD.append(pow(pithy_algebraic_T(pow(md1,2),pow(md2,2)),1/2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHPFE.NMD.append(pow(pithy_algebraic_S(pow(nmd1,2),pow(nmd2,2)),1/2))
-    return newDHPFE
-def DHPFE_Algebraic_Plus(dhfe1,dhfe2):
-    newDHPFE = DHPFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHPFE.MD.append(pow(pithy_algebraic_S(pow(md1,2),pow(md2,2)),1/2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHPFE.NMD.append(pow(pithy_algebraic_T(pow(nmd1,2),pow(nmd2,2)),1/2))
-    return newDHPFE
-
-## Einstein Basic Operations
-def DHPFE_Einstein_Multiply(dhfe1,dhfe2):
-    newDHPFE = DHPFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHPFE.MD.append(pow(pithy_einstein_T(pow(md1,2),pow(md2,2)),1/2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHPFE.NMD.append(pow(pithy_einstein_S(pow(nmd1,2),pow(nmd2,2)),1/2))
-    return newDHPFE
-def DHPFE_Einstein_Plus(dhfe1,dhfe2):
-    newDHPFE = DHPFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHPFE.MD.append(pow(pithy_einstein_S(pow(md1,2),pow(md2,2)),1/2))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHPFE.NMD.append(pow(pithy_einstein_T(pow(nmd1,2),pow(nmd2,2)),1/2))
-    return newDHPFE
-
-## Basic multiplication and addition operations
-## Dual Hesitant Fermatean Fuzzy Elements
-## Algebraic Basic Operations 
-def DHFFE_Algebraic_Multiply(dhfe1,dhfe2):
-    newDHFFE = DHFFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHFFE.MD.append(pow(pithy_algebraic_T(pow(md1,3),pow(md2,3)),1/3))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHFFE.NMD.append(pow(pithy_algebraic_S(pow(nmd1,3),pow(nmd2,3)),1/3))
-    return newDHFFE
-def DHFFE_Algebraic_Plus(dhfe1,dhfe2):
-    newDHFFE = DHFFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHFFE.MD.append(pow(pithy_algebraic_S(pow(md1,3),pow(md2,3)),1/3))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHFFE.NMD.append(pow(pithy_algebraic_T(pow(nmd1,3),pow(nmd2,3)),1/3))
-    return newDHFFE
-
-## Einstein Basic Operations
-def DHFFE_Einstein_Multiply(dhfe1,dhfe2):
-    newDHFFE = DHFFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHFFE.MD.append(pow(pithy_einstein_T(pow(md1,3),pow(md2,3)),1/3))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHFFE.NMD.append(pow(pithy_einstein_S(pow(nmd1,3),pow(nmd2,3)),1/3))
-    return newDHFFE
-def DHFFE_Einstein_Plus(dhfe1,dhfe2):
-    newDHFFE = DHFFE([],[])
-    for md1 in dhfe1.MD:
-        for md2 in dhfe2.MD:
-            newDHFFE.MD.append(pow(pithy_einstein_S(pow(md1,3),pow(md2,3)),1/3))
-    for nmd1 in dhfe1.NMD:
-        for nmd2 in dhfe2.NMD:
-            newDHFFE.NMD.append(pow(pithy_einstein_T(pow(nmd1,3),pow(nmd2,3)),1/3))
-    return newDHFFE
