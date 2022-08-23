@@ -24,14 +24,39 @@ class DHIFE:
             mds.append(float(format(md,'.4f')))
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
-        print('DHIFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
-        print('\n')
         print('The cardinal number of  MD is %d'%len(mds))
         print('The cardinal number of NMD is %d'%len(nmds))
+        print('\nDHIFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
 
     def getQRung(self):
         return 1
         
+    def isEmpty(self):
+        ## 判断隶属度和非隶属度是否为空
+        if not self.MD and not self.NMD:
+            return True
+        else:
+            return False
+    
+    def DHFEs_Qsort(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 快速排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([], [])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
+
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
         newDHIFE = DHIFE([],[])
@@ -118,13 +143,38 @@ class DHPFE:
             mds.append(float(format(md,'.4f')))
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
-        print('DHPFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
-        print('\n')
         print('The cardinal number of  MD is %d'%len(mds))
         print('The cardinal number of NMD is %d'%len(nmds))
+        print('\nDHPFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
     
     def getQRung(self):
         return 2
+    
+    def isEmpty(self):
+        ## 判断隶属度和非隶属度是否为空
+        if not self.MD and not self.NMD:
+            return True
+        else:
+            return False
+
+    def DHFEs_Qsort(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 快速排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([], [])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):
@@ -221,13 +271,38 @@ class DHFFE:
             mds.append(float(format(md,'.4f')))
         for nmd in self.NMD:
             nmds.append(float(format(nmd,'.4f')))
-        print('DHFFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
-        print('\n')
         print('The cardinal number of  MD is %d'%len(mds))
         print('The cardinal number of NMD is %d'%len(nmds))
+        print('\nDHFFE:{\n' + 'MD: '+ str(mds) + ',\n' + 'NMD:' + str(nmds) +'}')
 
     def getQRung(self):
         return 3
+    
+    def isEmpty(self):
+        ## 判断隶属度和非隶属度是否为空
+        if not self.MD and not self.NMD:
+            return True
+        else:
+            return False
+
+    def DHFEs_Qsort(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 快速排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([], [])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
         
     ## Algebraic Basic Operations
     def Algebraic_Power(self,l):

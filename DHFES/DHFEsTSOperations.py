@@ -12,9 +12,9 @@ from DHFES.DHFEs import *
 ## Algebraic Basic Operations 
 def DHIFE_Algebraic_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==1           ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
         return None
     
     newDHIFE = DHIFE([],[])
@@ -27,9 +27,9 @@ def DHIFE_Algebraic_Multiply(dhfe1,dhfe2):
     return newDHIFE
 def DHIFE_Algebraic_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==1          ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
         return None
 
     newDHIFE = DHIFE([],[])
@@ -44,9 +44,9 @@ def DHIFE_Algebraic_Plus(dhfe1,dhfe2):
 ## Einstein Basic Operations
 def DHIFE_Einstein_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==1         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
         return None
     
     newDHIFE = DHIFE([],[])
@@ -59,9 +59,9 @@ def DHIFE_Einstein_Multiply(dhfe1,dhfe2):
     return newDHIFE
 def DHIFE_Einstein_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==1         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
         return None
     
     newDHIFE = DHIFE([],[])
@@ -78,9 +78,9 @@ def DHIFE_Einstein_Plus(dhfe1,dhfe2):
 ## Algebraic Basic Operations 
 def DHPFE_Algebraic_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==2         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHPFEs!',es)
         return None
     
     newDHPFE = DHPFE([],[])
@@ -93,9 +93,9 @@ def DHPFE_Algebraic_Multiply(dhfe1,dhfe2):
     return newDHPFE
 def DHPFE_Algebraic_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==2         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHPFEs!',es)
         return None
     
     newDHPFE = DHPFE([],[])
@@ -110,9 +110,9 @@ def DHPFE_Algebraic_Plus(dhfe1,dhfe2):
 ## Einstein Basic Operations
 def DHPFE_Einstein_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==2         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHPFEs!',es)
         return None
     
     newDHPFE = DHPFE([],[])
@@ -125,9 +125,9 @@ def DHPFE_Einstein_Multiply(dhfe1,dhfe2):
     return newDHPFE
 def DHPFE_Einstein_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==2         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHPFEs!',es)
         return None
     
     newDHPFE = DHPFE([],[])
@@ -144,9 +144,9 @@ def DHPFE_Einstein_Plus(dhfe1,dhfe2):
 ## Algebraic Basic Operations 
 def DHFFE_Algebraic_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==3         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHFFEs!',es)
         return None
     
     newDHFFE = DHFFE([],[])
@@ -159,9 +159,9 @@ def DHFFE_Algebraic_Multiply(dhfe1,dhfe2):
     return newDHFFE
 def DHFFE_Algebraic_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==3         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHFFEs!',es)
         return None
     
     newDHFFE = DHFFE([],[])
@@ -176,9 +176,9 @@ def DHFFE_Algebraic_Plus(dhfe1,dhfe2):
 ## Einstein Basic Operations
 def DHFFE_Einstein_Multiply(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==3         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHFFEs!',es)
         return None
     
     newDHFFE = DHFFE([],[])
@@ -191,9 +191,9 @@ def DHFFE_Einstein_Multiply(dhfe1,dhfe2):
     return newDHFFE
 def DHFFE_Einstein_Plus(dhfe1,dhfe2):
     try:
-        assert dhfe1.getQRung() == dhfe2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert dhfe1.getQRung() == dhfe2.getQRung()  and dhfe1.getQRung()==3         ## 判断是否是同一种对偶犹豫模糊集
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHFFEs!',es)
         return None
     
     newDHFFE = DHFFE([],[])

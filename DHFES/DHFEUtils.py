@@ -9,54 +9,11 @@ def DHFEs_distance(d1,d2,lam):
     # lam 表示广义对偶犹豫模糊元素距离参数计算，lam=1 为 Hamming distance，lam=2 为 Euclidean distance.
     # 该距离为对偶犹豫费马模糊元素距离公式
     try:
-        assert d1.getQRung() == d2.getQRung()           ## 判断是否是同一种对偶犹豫模糊集
+        assert d1.getQRung() == d2.getQRung() and d1.isEmpty()==False and d2.isEmpty()==False         ## 判断是否是同一种对偶犹豫模糊集
         q = d1.getQRung()
     except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE!',es)
+        print('ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!!',es)
         return None
-
-    def DHFEs_Qsort(dhfes,q):
-        ## 对偶犹豫模糊元素隶属度非隶属度快速排序算法
-        
-        def quick_sort(lists,i,j):
-            if i >= j:
-                return list
-            pivot = lists[i]
-            low = i
-            high = j
-            while i < j:
-                while i < j and lists[j] >= pivot:
-                    j -= 1
-                lists[i]=lists[j]
-                while i < j and lists[i] <=pivot:
-                    i += 1
-                lists[j]=lists[i]
-            lists[j] = pivot
-            quick_sort(lists,low,i-1)
-            quick_sort(lists,i+1,high)
-            return lists
-        
-        if q == 1:
-            x = DHIFE([],[])
-        elif q==2:
-            x = DHPFE([],[])
-        elif q== 3:
-            x = DHFFE([],[])
-        
-        if len(dhfes.MD)>1:
-            md = quick_sort(dhfes.MD,0,len(dhfes.MD)-1)
-        else:
-            md = dhfes.MD
-        if len(dhfes.NMD)>1:
-            nmd = quick_sort(dhfes.NMD,0,len(dhfes.NMD)-1)
-        else:
-            nmd = dhfes.NMD
-        # print(md,nmd)
-        for i in md:
-            x.MD.append(i)
-        for j in nmd:
-            x.NMD.append(j)
-        return x
     
     def normalized(D1,D2):
         ## 标准化，若 len(d1.MD)≠len(d2.MD) 则将隶属度的值数量匹配相等，采用乐观匹配 
@@ -90,8 +47,8 @@ def DHFEs_distance(d1,d2,lam):
     
     ## 先对对偶犹豫模糊元素进行排序，打印排序后的元素
     
-    d1 = DHFEs_Qsort(d1,q)
-    d2 = DHFEs_Qsort(d2,q)
+    d1 = d1.DHFEs_Qsort()
+    d2 = d2.DHFEs_Qsort()
     # print("Sorted MD & NMD of DHFE-d1 & DHFE-d2:")
     # print(d1.MD,d1.NMD)
     # print(d2.MD,d2.NMD)
@@ -109,7 +66,15 @@ def DHFEs_distance(d1,d2,lam):
         mds += pow(fabs(pow(d1.MD[x],q)-pow(d2.MD[x],q)),lam)
     for y in range(len(d1.NMD)):
         nmds += pow(fabs(pow(d1.NMD[y],q)-pow(d2.NMD[y],q)),lam)
-    return float(format(pow(m*(mds+nmds),1/lam),'.4f'))
+    distance = format(pow(m*(mds+nmds),1/lam),'.4f')
+    
+    if lam == 1:
+        print('The Hamming distance is '+distance)
+    elif lam == 2:
+        print('The Euclidean distance is '+distance)
+    return float(distance)
+    
+    
 
 ## 对偶犹豫模糊元素支持度
 def DHFEs_support(d1,d2,lam):
@@ -118,40 +83,5 @@ def DHFEs_support(d1,d2,lam):
     # lam 表示广义对偶犹豫模糊元素距离参数计算，lam=1 为 Hamming distance，lam=2 为 Euclidean distance.
     return 1-DHFEs_distance(d1,d2,q,lam)
 
-def DHFFEs_Qsort(dhfes):
-	## 对偶犹豫模糊元素隶属度与非隶属度排序
-    ## q 表示 q-rung
-    ## 快速排序
-    q = dhfes.getQRung()
-    
-    def quick_sort(lists,i,j):
-        if i >= j:
-            return list
-        pivot = lists[i]
-        low = i
-        high = j
-        while i < j:
-            while i < j and lists[j] >= pivot:
-                j -= 1
-            lists[i]=lists[j]
-            while i < j and lists[i] <=pivot:
-                i += 1
-            lists[j]=lists[i]
-        lists[j] = pivot
-        quick_sort(lists,low,i-1)
-        quick_sort(lists,i+1,high)
-        return lists
 
-    if q==1:
-        x = DHIFE([],[])
-    elif q==2:
-        x = DHPFE([], [])
-    elif q==3:
-        x = DHFFE([],[])
-
-    for i in quick_sort(dhfes.MD,0,len(dhfes.MD)-1):
-        x.MD.append(i)
-    for j in quick_sort(dhfes.NMD,0,len(dhfes.NMD)-1):
-        x.NMD.append(j)
-    return x
 
