@@ -1,10 +1,10 @@
 import math
-import DHFES.DHFEs
-import Archimedean
-
 from math import pow
+import Archimedean
 from Archimedean import *
-from DHFES.DHFEs import *
+
+# import DHFES.DHFEs
+# from DHFES.DHFEs import *
 
 
 ########### Intersection and Union ###########

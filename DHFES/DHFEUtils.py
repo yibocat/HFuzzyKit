@@ -1,6 +1,7 @@
 import copy
-import DHFES.DHFEs
-from DHFES.DHFEs import *
+from math import fabs,pow
+# import DHFES.DHIFE
+# from DHFES.DHFEs import *
 
 ################# Normalization ##################
 def opt_normalized(D1,D2):
