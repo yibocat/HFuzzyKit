@@ -58,25 +58,43 @@ class DHIFE:
         else:
             newDHFE.MD = self.NMD
             newDHFE.NMD = self.MD
-        newDHFE.show()
         return newDHFE
     
     def DHFEs_Qsort(self):
         ## 对偶犹豫模糊元素隶属度与非隶属度排序
         ## q 表示 q-rung
-        ## 快速排序
+        ## 从小到大排序
         q = self.getQRung()
 
         if q==1:
             dhfe = DHIFE([],[])
         elif q==2:
-            dhfe = DHPFE([], [])
+            dhfe = DHPFE([],[])
         elif q==3:
             dhfe = DHFFE([],[])
 
         for i in sorted(self.MD):
             dhfe.MD.append(i)
         for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
+    
+    def DHFEs_Qsort_reve(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 从小到大排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([],[])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD,reverse=True):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD,reverse=True):
             dhfe.NMD.append(j)
         return dhfe
 
@@ -200,7 +218,6 @@ class DHPFE:
         else:
             newDHFE.MD = self.NMD
             newDHFE.NMD = self.MD
-        newDHFE.show()
         return newDHFE
 
     def DHFEs_Qsort(self):
@@ -219,6 +236,25 @@ class DHPFE:
         for i in sorted(self.MD):
             dhfe.MD.append(i)
         for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
+    
+    def DHFEs_Qsort_reve(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 从大到小排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([],[])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD,reverse=True):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD,reverse=True):
             dhfe.NMD.append(j)
         return dhfe
         
@@ -352,7 +388,6 @@ class DHFFE:
         else:
             newDHFE.MD = self.NMD
             newDHFE.NMD = self.MD
-        newDHFE.show()
         return newDHFE
 
     def DHFEs_Qsort(self):
@@ -371,6 +406,25 @@ class DHFFE:
         for i in sorted(self.MD):
             dhfe.MD.append(i)
         for j in sorted(self.NMD):
+            dhfe.NMD.append(j)
+        return dhfe
+    
+    def DHFEs_Qsort_reve(self):
+        ## 对偶犹豫模糊元素隶属度与非隶属度排序
+        ## q 表示 q-rung
+        ## 从大到小排序
+        q = self.getQRung()
+
+        if q==1:
+            dhfe = DHIFE([],[])
+        elif q==2:
+            dhfe = DHPFE([],[])
+        elif q==3:
+            dhfe = DHFFE([],[])
+
+        for i in sorted(self.MD,reverse=True):
+            dhfe.MD.append(i)
+        for j in sorted(self.NMD,reverse=True):
             dhfe.NMD.append(j)
         return dhfe
         
