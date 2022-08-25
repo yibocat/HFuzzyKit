@@ -1,8 +1,7 @@
 import copy
-
-import numpy as np
-np.set_printoptions(suppress=True) ## 非科学计数法
-# np.set_printoptions(precision=4)
+from math import fabs,pow
+# import DHFES.DHIFE
+# from DHFES.DHFEs import *
 
 ################# Normalization ##################
 def opt_normalized(D1,D2):
@@ -15,20 +14,20 @@ def opt_normalized(D1,D2):
     i=0
     if lmd>0:
         while i<lmd:
-            d2.MD = np.append(d2.MD,np.max(d2.MD))
+            d2.MD.append(max(d2.MD))
             i += 1
     else:
         while i<(-lmd):
-            d1.MD = np.append(d1.MD,np.max(d1.MD))
+            d1.MD.append(max(d1.MD))
             i += 1
     j=0
     if lnmd>0:
         while j<lnmd:
-            d2.NMD = np.append(d2.NMD,np.max(d2.NMD))
+            d2.NMD.append(max(d2.NMD))
             j += 1
     else:
         while j<(-lnmd):
-            d1.NMD = np.append(d1.NMD,np.max(d1.NMD))
+            d1.NMD.append(max(d1.NMD))
             j += 1
     d1 = d1.DHFEs_Qsort()
     d2 = d2.DHFEs_Qsort()
@@ -44,24 +43,26 @@ def pess_normalized(D1,D2):
     i=0
     if lmd>0:
         while i<lmd:
-            d2.MD = np.append(d2.MD,np.min(d2.MD))
+            d2.MD.append(min(d2.MD))
             i += 1
     else:
         while i<(-lmd):
-            d1.MD = np.append(d1.MD,np.min(d1.MD))
+            d1.MD.append(min(d1.MD))
             i += 1
     j=0
     if lnmd>0:
         while j<lnmd:
-            d2.NMD = np.append(d2.NMD,np.min(d2.NMD))
+            d2.NMD.append(min(d2.NMD))
             j += 1
     else:
         while j<(-lnmd):
-            d1.NMD = np.append(d1.NMD,np.min(d1.NMD))
+            d1.NMD.append(min(d1.NMD))
             j += 1
     d1 = d1.DHFEs_Qsort()
     d2 = d2.DHFEs_Qsort()
     return d1,d2
+
+
 
 
 ############ Destance function ############
@@ -95,17 +96,19 @@ def DHFEs_Standard_distance(d1,d2,lam=1,method='opt'):
     mds,nmds = 0,0
     m = 1/(len(d1.MD)+len(d1.NMD))
     
-    
-    
-    
     for x in range(len(d1.MD)):
-        mds += np.fabs(d1.MD[x]**q-d2.MD[x]**q)**lam
+        mds += pow(fabs(pow(d1.MD[x],q)-pow(d2.MD[x],q)),lam)
     for y in range(len(d1.NMD)):
-        nmds += np.fabs(d1.NMD[y]**q-d2.NMD[y]**q)**lam
-    distance = m*(mds+nmds)**(1/lam)
+        nmds += pow(fabs(pow(d1.NMD[y],q)-pow(d2.NMD[y],q)),lam)
+    distance = pow(m*(mds+nmds),1/lam)
     
+    # if lam == 1:
+    #     print('The '+method+' Hamming distance is '+format(distance,'.4f'))
+    # elif lam == 2:
+    #     print('The '+method+' Euclidean distance is '+format(distance,'.4f'))
     return distance
-
+    
+    
 def DHFEs_Hausdorff_distance(d1,d2,lam=1,method='opt'):
     ## 广义 Hausdorff 距离，lam为参数， method 表示乐观标准化和悲观标准化，默认为乐观标准化
     try:
@@ -130,9 +133,9 @@ def DHFEs_Hausdorff_distance(d1,d2,lam=1,method='opt'):
     
     mds,nmds=0,0
     for x in range(len(d1.MD)):
-        mds = mds if mds>np.fabs(d1.MD[x]-d2.MD[x])**lam else np.fabs(d1.MD[x]-d2.MD[x])**lam
+        mds = mds if mds>fabs(d1.MD[x]-d2.MD[x])**lam else fabs(d1.MD[x]-d2.MD[x])**lam
     for y in range(len(d1.NMD)):
-        nmds = nmds if nmds>np.fabs(d1.NMD[y]-d2.NMD[y])**lam else np.fabs(d1.NMD[y]-d2.NMD[y])**lam
+        nmds = nmds if nmds>fabs(d1.NMD[y]-d2.NMD[y])**lam else fabs(d1.NMD[y]-d2.NMD[y])**lam
     distance = max(mds,nmds)
     
     # if lam == 1:
@@ -140,7 +143,7 @@ def DHFEs_Hausdorff_distance(d1,d2,lam=1,method='opt'):
     # elif lam == 2:
     #     print('The '+method+' Euclidean-Hausdorff distance is '+format(distance,'.4f'))
     return distance
-
+    
 def DHFEs_Distance(d1,d2,distance='Standard',lam=1,method='opt'):
     ## 对偶犹豫模糊距离公式
     ## d1,d2表示两个对偶犹豫模糊元素,distance 为距离方法,可选'Hausdorff',默认'Standard',lam 为距离参数,1:Hamming，2:Euclidean
@@ -161,7 +164,7 @@ def DHFEs_Distance(d1,d2,distance='Standard',lam=1,method='opt'):
     else:
         print('ERROR distance, please select the right distance!')
         return -1
-
+    
 ## 对偶犹豫模糊元素支持度
 def DHFEs_support(d1,d2,distance='Standard',lam=1,method='opt'):
     # d1 表示第一个对偶犹豫模糊元素,d2 表示第二个犹豫模糊元素,该函数表示 d1 对 d2 的支持度
@@ -215,7 +218,7 @@ def Corr_coefficient_1(d1,d2,method='opt'):
         print('ERROR method, please select \'opt\' or \'pess\'!')
         return -1
     
-    corr_coe = corr(d1,d2)/(corr(d1,d1)*corr(d2,d2)**(1/2))         ## 相关系数公式
+    corr_coe = corr(d1,d2)/pow(corr(d1,d1)*corr(d2,d2),1/2)         ## 相关系数公式
     return corr_coe
 
 def Corr_coefficient_2(d1,d2,method='opt'):
@@ -254,6 +257,7 @@ def Corr_coefficient_2(d1,d2,method='opt'):
     
     corr_coe = corr(d1,d2)/max(corr(d1,d1),corr(d2,d2))          ## 相关系数公式
     return corr_coe
+
 
 ## Some bugs no fix ##
 # def Corr_coefficient_3(d1,d2,method='opt'):
@@ -306,7 +310,7 @@ def Corr_coefficient_2(d1,d2,method='opt'):
 #         print('ERROR method, please select \'opt\' or \'pess\'!')
 #         return -1
     
-#     corr_coe = corr(d1,d2)/(corr(d1,d1)*corr(d2,d2)**(1/2)         ## 相关系数公式
+#     corr_coe = corr(d1,d2)/pow(corr(d1,d1)*corr(d2,d2),1/2)         ## 相关系数公式
 #     return corr_coe
 
 # def Corr_coefficient_4(d1,d2,method='opt'):
@@ -412,34 +416,11 @@ def Corr_coefficient_2(d1,d2,method='opt'):
 #         sum_nmd += (min_nmd+max_nmd)/(fabs(d1.NMD[j]-d2.NMD[j])+max_nmd)
 #     return ((1/len(d1.MD))*sum_md+(1/len(d1.NMD))*sum_nmd)/2
 
+
+
 ###########  DHFEs Entropy and similarity measure ###############
 def DHF_Entropy(d,distance='Standard',lam=1,method='opt'):
     ## 初等对偶犹豫模糊熵
     ## lam 为距离参数,当 lam=1,距离使用 Hamming 距离;lam=2,为 Euclidean 距离
     ## 和距离公式一样，distance 和 method 表示不同的距离公式，从而生成不同的对偶犹豫模糊熵
     return 1-DHFEs_Distance(d,d.comp(),distance,lam,method)
-
-
-########### generate a random DHFE ##############
-from .DHIFE import DHIFE
-from .DHPFE import DHPFE
-from .DHFFE import DHFFE
-def randomDHFE(q,n=5):
-    ## q 级正交对偶犹豫模糊随机数生成
-    ## n 表示生成的数的最大随机个数，默认为 5
-    md = np.random.rand(np.random.randint(1,n))
-    nmd = np.random.rand(np.random.randint(1,n))
-
-    if q==1:
-        newDHFE = DHIFE([],[])
-    elif q==2:
-        newDHFE = DHPFE([],[])
-    elif q==3:
-        newDHFE = DHFFE([],[])
-
-    if max(md)**q+max(nmd)**q <= 1:
-        newDHFE.MD = md
-        newDHFE.NMD = nmd
-        return newDHFE
-    else:
-        return randomDHFE(q,n)
