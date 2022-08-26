@@ -72,13 +72,9 @@ def DHFEs_Standard_distance(d1,d2,lam=1,method='opt'):
     # lam 表示广义对偶犹豫模糊元素距离参数计算，lam=1 为 Hamming distance，lam=2 为 Euclidean distance.
     # method 表示采用乐观还是悲观标准化，默认采用乐观标准化，悲观设置为 method='pess'
     # 该距离为对偶犹豫费马模糊元素距离公式
-    try:
-        assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False         ## 判断是否是同一种对偶犹豫模糊集
-        q = d1.qrung
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!!',es)
-        return None
-    
+
+    assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False,'ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!'         ## 判断是否是同一种对偶犹豫模糊集
+    q = d1.qrung
     ## 先对对偶犹豫模糊元素进行排序，打印排序后的元素
     d1 = d1.DHFEs_Qsort()
     d2 = d2.DHFEs_Qsort()
@@ -108,12 +104,8 @@ def DHFEs_Standard_distance(d1,d2,lam=1,method='opt'):
 
 def DHFEs_Hausdorff_distance(d1,d2,lam=1,method='opt'):
     ## 广义 Hausdorff 距离，lam为参数， method 表示乐观标准化和悲观标准化，默认为乐观标准化
-    try:
-        assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False         ## 判断是否是同一种对偶犹豫模糊集
-        q = d1.qrung
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!!',es)
-        return None
+    assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False,'ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!'         ## 判断是否是同一种对偶犹豫模糊集
+    q = d1.qrung
     
     ## 先对对偶犹豫模糊元素进行排序，打印排序后的元素
     d1 = d1.DHFEs_Qsort()
@@ -185,12 +177,8 @@ def Corr_coefficient_1(d1,d2,method='opt'):
             3.Wang, L., Ni, M. & Zhu, L. Correlation Measures of Dual 
         Hesitant Fuzzy Sets. J Appl Math 2013, 1–12 (2013).
     '''
-    try:
-        assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False         ## 判断是否是同一种对偶犹豫模糊集
-        q = d1.qrung
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!!',es)
-        return None
+    assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False,'ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!'         ## 判断是否是同一种对偶犹豫模糊集
+    q = d1.qrung
     
     def corr(d1,d2):
         ## d1和d2的相关性
@@ -223,12 +211,8 @@ def Corr_coefficient_2(d1,d2,method='opt'):
         对偶犹豫模糊元素相关系数 C2
         分子采用 C1 同样的相关性，分母采用最大值形式
     '''
-    try:
-        assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False         ## 判断是否是同一种对偶犹豫模糊集
-        q = d1.qrung
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!!',es)
-        return None
+    assert d1.qrung == d2.qrung and d1.isEmpty()==False and d2.isEmpty()==False,'ERROR! The two DHFEs are not the same DHFE or one of them is a empty DHFE!'         ## 判断是否是同一种对偶犹豫模糊集
+    q = d1.qrung
     
     def corr(d1,d2):
         ## d1和d2的相关性
@@ -413,7 +397,7 @@ def Corr_coefficient_2(d1,d2,method='opt'):
 #     return ((1/len(d1.MD))*sum_md+(1/len(d1.NMD))*sum_nmd)/2
 
 ###########  DHFEs Entropy and similarity measure ###############
-def DHF_Entropy(d,distance='Standard',lam=1,method='opt'):
+def DHFE_Entropy(d,distance='Standard',lam=1,method='opt'):
     ## 初等对偶犹豫模糊熵
     ## lam 为距离参数,当 lam=1,距离使用 Hamming 距离;lam=2,为 Euclidean 距离
     ## 和距离公式一样，distance 和 method 表示不同的距离公式，从而生成不同的对偶犹豫模糊熵

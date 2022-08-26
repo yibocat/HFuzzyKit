@@ -4,17 +4,11 @@ from DHFES.Archimedean import *
 class DHIFE:
     qrung = 1
     def __init__(self,MD,NMD):
-        try:
-            MD = np.asarray(MD)
-            NMD = np.asarray(NMD)
-            assert (MD.size==0 or NMD.size==0) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1)
-            self.MD = MD
-            self.NMD = NMD
-        except AssertionError as er:
-            print("ERROE:Construction failed!\n"+
-                  "DHIFE max(MD)+max(NMD) and min(MD)+min(NMD) must be in interval[0,1]!\n"+
-                  "It will return a variable of type 'NoneType'!",er)
-            self = None
+        MD = np.asarray(MD)
+        NMD = np.asarray(NMD)
+        assert (MD.size==0 or NMD.size==0) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1),'ERROE:Construction failed! DHIFE max(MD)+max(NMD) and min(MD)+min(NMD) must be in interval[0,1]!'
+        self.MD = MD
+        self.NMD = NMD
 
     def __repr__(self):
         print('The cardinal number of  MD is %d'%len(self.MD))
@@ -147,12 +141,14 @@ class DHIFE:
 ## Dual Hesitant Intuitionistic Fuzzy Elements
 ## Intersection
 def DHIFE_Intersection(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1           ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
-    
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'           ## 判断是否是同一种对偶犹豫模糊集
+    # try:
+    #     assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1           ## 判断是否是同一种对偶犹豫模糊集
+    # except AssertionError as es:
+    #     print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
+    #     return None
+
     newDHFE = DHIFE([],[])
     md_min = min(max(dhfe1.MD),max(dhfe2.MD))
     nmd_max = max(min(dhfe1.NMD),min(dhfe2.NMD))
@@ -169,11 +165,9 @@ def DHIFE_Intersection(dhfe1,dhfe2):
 
 ## Union
 def DHIFE_Union(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1           ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'           ## 判断是否是同一种对偶犹豫模糊集
+
     
     newDHFE = DHIFE([],[])
     
@@ -195,12 +189,9 @@ def DHIFE_Union(dhfe1,dhfe2):
 ## Basic multiplication and addition operations
 ## Algebraic Basic Operations 
 def DHIFE_Algebraic_Multiply(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1         ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
-    
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'         ## 判断是否是同一种对偶犹豫模糊集
+
     dh_md1,dh_nmd1 = list(dhfe1.MD),list(dhfe1.NMD)
     dh_md2,dh_nmd2 = list(dhfe2.MD),list(dhfe2.NMD)
     
@@ -221,11 +212,8 @@ def DHIFE_Algebraic_Multiply(dhfe1,dhfe2):
     return newDHFE
 
 def DHIFE_Algebraic_Plus(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1          ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'          ## 判断是否是同一种对偶犹豫模糊集
 
     dh_md1,dh_nmd1 = list(dhfe1.MD),list(dhfe1.NMD)
     dh_md2,dh_nmd2 = list(dhfe2.MD),list(dhfe2.NMD)
@@ -248,11 +236,8 @@ def DHIFE_Algebraic_Plus(dhfe1,dhfe2):
 
 ## Einstein Basic Operations
 def DHIFE_Einstein_Multiply(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1         ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'         ## 判断是否是同一种对偶犹豫模糊集
     
     dh_md1,dh_nmd1 = list(dhfe1.MD),list(dhfe1.NMD)
     dh_md2,dh_nmd2 = list(dhfe2.MD),list(dhfe2.NMD)
@@ -274,11 +259,8 @@ def DHIFE_Einstein_Multiply(dhfe1,dhfe2):
     return newDHFE
 
 def DHIFE_Einstein_Plus(dhfe1,dhfe2):
-    try:
-        assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1          ## 判断是否是同一种对偶犹豫模糊集
-    except AssertionError as es:
-        print('ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!',es)
-        return None
+
+    assert dhfe1.qrung == dhfe2.qrung  and dhfe1.qrung==1 ,'ERROR! The two DHFEs are not the same DHFE or they may be not DHIFEs!'         ## 判断是否是同一种对偶犹豫模糊集
 
     dh_md1,dh_nmd1 = list(dhfe1.MD),list(dhfe1.NMD)
     dh_md2,dh_nmd2 = list(dhfe2.MD),list(dhfe2.NMD)
