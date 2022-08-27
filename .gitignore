@@ -1,5 +1,5 @@
 .DS_Store
 .*
-.ipynb_checkpoint
+.ipynb_checkpoint/
 DHFES/__pycache__/
 DHFES/membershipFun/__pycache__/
