@@ -1,7 +1,7 @@
 import DHFES.Archimedean
 from DHFES.Archimedean import *
 
-class DHFFE:
+class DHFFE(object):
     qrung = 3
     def __init__(self,MD,NMD):
         MD = np.asarray(MD)

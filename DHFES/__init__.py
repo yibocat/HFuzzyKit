@@ -49,9 +49,8 @@ __all__ += ['algebraic_tau','in_algebraic_tau','algebraic_s','in_algebraic_s',
             'einstein_tau','in_einstein_tau','einstein_s','in_einstein_s',
             'einstein_T','einstein_S','pithy_einstein_T','pithy_einstein_S']
 
-
-
 from DHFES.Archimedean import (algebraic_tau,in_algebraic_tau,algebraic_s,in_algebraic_s,
                         algebraic_T,algebraic_S,pithy_algebraic_T,pithy_algebraic_S,
                         einstein_tau,in_einstein_tau,einstein_s,in_einstein_s,
                         einstein_T,einstein_S,pithy_einstein_T,pithy_einstein_S)
+
