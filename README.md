@@ -1,157 +1,155 @@
-# Fuzzy-Number-4Operations
+# HFuzzypy
 
+### 介绍
 
+这是一个在开发中的模糊逻辑工具包，包含了基本的模糊处理功能。
 
+`HFuzzypyKit` 包含了基本模糊数和模糊元素逻辑，目前实现了对偶犹豫模糊的大部分模糊逻辑功能。模糊和区间值模糊仅包含模糊数的定义和 size 运算。
 
+基本逻辑运算是基于阿基米德 t-norms 下的，包括基于 Algebraic t-norms 和 Einstein t-norms 的模糊逻辑基本运算
 
-### The definition of basic fuzzy numbers and basic operations are included.
+具体包括模糊功能见底部。
 
-#### FNs:
+### 文档
 
-1. Definition of Intuitionistic fuzzy numbers and the four basic operations.
-2. Definition of interval-valued Intuitionistic fuzzy numbers and the four basic operations.
-3. Definition of Pythagorean fuzzy numbers and the four basic operations.
-4. Definition of interval-valued Pythagorean fuzzy numbers and the four basic operations.
-5. Definition of Fermatean fuzzy numbers and the four basic operations.
-6. Definition of interval-valued Fermatean fuzzy numbers and the four basic operations.
+正在制作中......
 
-#### InteractionFNs:
+### 依赖的包
 
-1. Interaction Intuitionistic fuzzy basic operations.
-2. Interaction interval-valued Intuitionistic fuzzy basic operations.
-3. Interaction Pythagorean fuzzy basic operations.
-4. Interaction interval-valued Pythagorean fuzzy basic operations.
-5. Interaction Fermatean fuzzy basic operations.
-6. Interaction interval-valued Fermatean fuzzy basic operations.
+Numpy https://numpy.org/
 
-#### DHFEs:
+Matplotlib https://matplotlib.org/
 
-1. Definition of Dual Hesitant Intuitionistic Fuzzy Elements and the four basic operations.
-2. Definition of Dual Hesitant Pythagorean Fuzzy Elements and the four basic operations.
-3. Definition of Dual Hesitant Fermatean Fuzzy Elements and the four basic operations.
+### 导入(仅 DHFES)
 
-
-
-operators based on Archimedes' t-parametrization, including algebraic t-parametrization and t-remaining parametrization and Einstein t-parametrization and t-remaining parametrization
-
-### Example of the Definition and Operations of Fuzzy Number
-
-PFN,IVPFN,FFN,IVFFN are same as IFN and IVIFN.
+导入对偶犹豫模糊元素包
 
 ```python
-ifn = IFN(0.5,0.3)#the definition of Intuitionistic fuzzy number
-ivifn = IVIFN(0.5,0.7,0.1,0.3)#the definition of Interval-Valued Intuitionistic fuzzy number
-
-ifn.show()#show the Intuitionistic fuzzy number
->>(0.5, 0.3)
-ivifn.show()#show the Interval-Valued Intuitionistic fuzzy number
->>([0.5, 0.7], [0.1, 0.3])
-
-# Intuitionistic fuzzy number Power and Times operations, show() means show the IFN.
-ifn.Algebraic_Power(3).show()				#3 powers of the IFN in Algebraic t-norm & t-conorm
-ifn.Algebraic_Times(3).show()				#3 times of the IFN in Algebraic t-norm & t-conorm
-ifn.Einstein_Power(3).show()				#3 powers of the IFN in Einstein r-norm & t-conorm
-ifn.Einstein_Times(3).show()				#3 times of the IFN in Einstein r-norm & t-conorm
->>(0.125, 0.657)
->>(0.875, 0.026999999999999993)
->>(0.07142857142857145, 0.7299212598425198)
->>(0.9285714285714286, 0.010931174089068817)
-
-# Intered-valued Intuitionistic fuzzy number Power and Times operations, show() means show the IVIFN.
-ivifn.Algebraic_Power(3).show()				#3 powers of the IVIFN in Algebraic t-norm & t-conorm
-ivifn.Algebraic_Times(3).show()				#3 times of the IVIFN in Algebraic t-norm & t-conorm
-ivifn.Einstein_Power(3).show()				#3 powers of the IVIFN in Einstein r-norm & t-conorm
-ivifn.Einstein_Times(3).show()				#3 times of the IVIFN in Einstein r-norm & t-conorm
->>([0.125, 0.34299999999999997], [0.2709999999999999, 0.657])
->>([0.875, 0.973], [0.001, 0.026999999999999993])
->>([0.07142857142857145, 0.2700787401574802], [0.29223300970873795, 0.7299212598425198])
->>([0.9285714285714286, 0.9890688259109311], [0.00029154518950437334, 0.010931174089068817])
+from DHFES import *
 ```
 
-Interaction operations are similar to the above.
-
-
-
-### Next
-
-List all method descriptions.
-
-
-
-### Updating...
-
-------
-
-
-
-### 包括了基本模糊数的定义和基本运算：
-
-#### FNs:
-
-1. 直觉模糊数的定义和四项基本运算；
-2. 区间值直觉模糊数的定义和四项基本运算；
-3. 毕达哥拉斯模糊数的定义和四项基本运算；
-4. 区间值毕达哥拉斯模糊数的定义和四项基本运算；
-5. 费马模糊数的定义和四项基本运算；
-6. 区间值费马模糊数的定义和四项基本运算。
-
-#### InteractionFNs:
-
-1. 交互直觉模糊基本运算
-2. 交互区间值直觉模糊基本运算
-3. 交互毕达哥拉斯模糊基本运算
-4. 交互区间值毕达哥拉斯模糊基本运算
-5. 交互费马模糊基本运算
-6. 交互区间值费马模糊基本运算
-
-#### DHFEs:
-
-1. 对偶犹豫直觉模糊元素的定义和四项基本运算
-2. 对偶犹豫毕达哥拉斯模糊元素的定义和四项基本运算
-3. 对偶犹豫费马模糊元素的定义和四项基本运算
-
-
-
-基于阿基米德 t-范数下的运算法则，包括代数 t-范数和 t-余范数以及爱因斯坦 t-范数和 t-余范数。
-
-### 模糊数定义和运算举例
-
-毕达哥拉斯模糊数，区间值毕达哥拉斯模糊数，费马模糊数，区间值费马模糊数运算与直觉模糊，区间值直觉模糊数一样。
+导入对偶犹豫模糊元素生成器
 
 ```python
-ifn = IFN(0.5,0.3)#直觉模糊数定义
-ivifn = IVIFN(0.5,0.7,0.1,0.3)#区间值直觉模糊数定义
-
-ifn.show()#显示直觉模糊数
->>(0.5, 0.3)
-ivifn.show()#显示区间值直觉模糊数
->>([0.5, 0.7], [0.1, 0.3])
-
-# 直觉模糊数的幂和倍运算，show()函数表示显示结果
-ifn.Algebraic_Power(3).show()				# IFN 在代数范数下的 3 次幂运算
-ifn.Algebraic_Times(3).show()				# IFN 在代数范数下的 3 倍运算
-ifn.Einstein_Power(3).show()				# IFN 在爱因斯坦范数下的 3 次幂运算
-ifn.Einstein_Times(3).show()				# IFN 在爱因斯坦范数下的 3 倍运算
->>(0.125, 0.657)
->>(0.875, 0.026999999999999993)
->>(0.07142857142857145, 0.7299212598425198)
->>(0.9285714285714286, 0.010931174089068817)
-
-# 区间值直觉模糊数的幂和倍运算，show()函数表示显示结果
-ivifn.Algebraic_Power(3).show()				# IVIFN 在代数范数下的 3 次幂运算
-ivifn.Algebraic_Times(3).show()				# IVIFN 在代数范数下的 3 倍运算
-ivifn.Einstein_Power(3).show()				# IVIFN 在爱因斯坦范数下的 3 次幂运算
-ivifn.Einstein_Times(3).show()				# IVIFN 在爱因斯坦范数下的 3 倍运算
->>([0.125, 0.34299999999999997], [0.2709999999999999, 0.657])
->>([0.875, 0.973], [0.001, 0.026999999999999993])
->>([0.07142857142857145, 0.2700787401574802], [0.29223300970873795, 0.7299212598425198])
->>([0.9285714285714286, 0.9890688259109311], [0.00029154518950437334, 0.010931174089068817])
+from DHFES.DHFEGenerator import *
 ```
 
-交互运算和以上运算一样。
+### 示例
 
-### 随后
+以对偶犹豫费马模糊元素为例，创建一个 DHFFE
 
-列出所有的方法说明。
+```python
+from DHFES import *
+x1 = DHFFE([0.8,0.6],[0.5,0.2])
+x1
+>>
+    The cardinal number of  MD is 2
+    The cardinal number of NMD is 2
 
-### 更新中...
+    DHFFE:{ MD: [0.8 0.6],
+            NMD:[0.5 0.2] }
+
+```
+
+计算两个对偶犹豫费马模糊元素的代数范数加
+
+```python
+from DHFES import *
+x1 = DHFFE([0.8,0.6],[0.5,0.2])
+x2 = DHFFE([0.6,0.5],[0.3])
+DHFFE_Algebraic_Plus(x1,x2)
+>>
+    The cardinal number of  MD is 4
+    The cardinal number of NMD is 2
+    
+    DHFFE:{ MD: [0.8515 0.8306 0.7277 0.6797],
+            NMD:[0.15 0.06] }
+```
+
+创建一个对偶犹豫模糊元素生成器，隶属函数和非隶属函数选择高斯函数
+
+```python
+from DHFES.DHFEGenerator import *
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = DHFEGenerator(3)  ## 创建一个对偶犹豫费马模糊元素生成器
+
+x.set_MF('gaussmf')		## 隶属函数为高斯函数
+x.set_NMF('gaussmf')	## 非隶属函数为高斯函数
+x.set_MF_Num(3)			## 隶属函数个数为 3 个
+x.set_NMF_Num(4)		## 非隶属函数个数为 4 个
+x.set_MF_parameters([(4,1.36),(2.23,2.07),(4,3)])							## 设置隶属函数的参数
+x.set_NMF_parameters([(7.31,5.47),(7.98,3.28),(5.44,1.69),(8.26,6.22)])		## 设置非隶属函数参数
+
+x.set_Variable(0,10,100)		## 设置自变量范围: 0-1 间隔 100
+x.generator_function()			## 开始生成
+
+x.generator_DHFE(6,4)			## 生成隶属自变量为 6，非隶属自变量为 4 的 DHFFE
+>>
+	The cardinal number of  MD is 3
+    The cardinal number of NMD is 4
+
+    DHFFE:{ MD: [0.3391 0.1896 0.6654],
+            NMD:[0.4233 0.4271 0.69   0.3769] }
+```
+
+随机生成一个隶属度或非隶属度数量在 30 个以内的 DHFFE
+
+```python
+from DHFES import *
+randomDHFE(3,30)
+>>
+	The cardinal number of  MD is 9
+    The cardinal number of NMD is 2
+
+    DHFFE:{ MD: [0.6125 0.583  0.8336 0.3329 0.8221 0.4339 0.4671 0.7599 0.5337],
+            NMD:[0.1878 0.559 ] }
+```
+
+### 联系
+
+邮箱: yibocat@yeah.net
+
+### 更新中......
+
+下一步，制作一个文档手册
+
+### 附(`HFuzzypyKit`包含详细功能)
+
+1. 模糊数的定义和基本四则运算
+   1. 直觉模糊数
+   2. 毕达哥拉斯模糊数
+   3. 费马模糊数
+   4. 区间值直觉模糊数
+   5. 区间值毕达哥拉斯模糊数
+   6. 区间值费马模糊数
+2. 交互模糊数定义和基本四则运算
+   1. 交互直觉模糊
+   2. 交互毕达哥拉斯模糊
+   3. 交互费马模糊
+   4. 交互区间值直觉模糊
+   5. 交互区间值毕达哥拉斯模糊
+   6. 交互区间值费马模糊
+3. 对偶犹豫模糊元素的定义和基本四则运算以及交并运算
+   1. 对偶犹豫模糊元素
+   2. 对偶犹豫毕达哥拉斯模糊模糊元素
+   3. 对偶犹豫费马模糊元素
+4. 对偶犹豫模糊的相关系数度量，距离公式，模糊熵测度以及随机生成对偶犹豫模糊元素
+   1. 对偶犹豫模糊元素相关系数 C1 
+   2. 对偶犹豫模糊元素相关系数 C2 (与 C1 相比，分母采用最大值形式)
+   3. 对偶犹豫模糊标准距离公式
+   4. 对偶犹豫模糊广义 Hausdorff 公式
+   5. 对偶犹豫模糊元素模糊熵
+   6. 随机生成对偶犹豫模糊元素
+5. 隶属函数与非隶属函数
+   1. 基本 Sigmoid 函数
+   2. 三角函数
+   3. Z 函数
+   4. 梯形函数
+   5. S 函数
+   6. 高斯函数
+   7. 双高斯结合函数
+   8. 广义贝尔函数
+6. 对偶犹豫隶属函数生成器
+7. 基于隶属函数的对偶犹豫模糊元素生成器
