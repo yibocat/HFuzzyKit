@@ -1,12 +1,12 @@
-# HFuzzypy
+# HFuzzyKit
 
 ### 介绍
 
-这是一个在开发中的模糊逻辑工具包，包含了基本的模糊处理功能。
+`HFuzzyKit` 是一个在开发中的模糊逻辑工具包，包含了基本的模糊处理功能。
 
-`HFuzzypyKit` 包含了基本模糊数和模糊元素逻辑，目前实现了对偶犹豫模糊的大部分模糊逻辑功能。模糊和区间值模糊仅包含模糊数的定义和 size 运算。
+`HFuzzyKit` 包含了基本模糊数和模糊元素逻辑，目前实现了对偶犹豫模糊的大部分模糊逻辑功能。模糊和区间值模糊仅包含模糊数的定义和 size 运算。
 
-基本逻辑运算是基于阿基米德 t-norms 下的，包括基于 Algebraic t-norms 和 Einstein t-norms 的模糊逻辑基本运算
+基本逻辑运算基于阿基米德 t-norms ，包括基于 Algebraic t-norms 和 Einstein t-norms 的模糊逻辑基本运算
 
 具体包括模糊功能见底部。
 
@@ -87,7 +87,7 @@ x.generator_function()			## 开始生成
 
 x.generator_DHFE(6,4)			## 生成隶属自变量为 6，非隶属自变量为 4 的 DHFFE
 >>
-	The cardinal number of  MD is 3
+    The cardinal number of  MD is 3
     The cardinal number of NMD is 4
 
     DHFFE:{ MD: [0.3391 0.1896 0.6654],
@@ -100,7 +100,7 @@ x.generator_DHFE(6,4)			## 生成隶属自变量为 6，非隶属自变量为 4 
 from DHFES import *
 randomDHFE(3,30)
 >>
-	The cardinal number of  MD is 9
+    The cardinal number of  MD is 9
     The cardinal number of NMD is 2
 
     DHFFE:{ MD: [0.6125 0.583  0.8336 0.3329 0.8221 0.4339 0.4671 0.7599 0.5337],
