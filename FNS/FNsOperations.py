@@ -1,8 +1,5 @@
-import math
-from math import *
-import Archimedean
-from Archimedean import *
-import FNS.FNs
+from math import pow
+from FNS.Archimedean import *
 from FNS.FNs import *
 
 

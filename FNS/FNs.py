@@ -1,7 +1,5 @@
-import math
-from math import *
-import Archimedean
-from Archimedean import *
+from math import pow
+from FNS.Archimedean import *
 
 ## Intuitionistic Fuzzy Number
 class IFN:

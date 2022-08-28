@@ -1,7 +1,6 @@
-import math
 from math import *
-from FNs import *
-from Archimedean import *
+from FNS.FNs import *
+from FNS.Archimedean import *
 
 class InteractionIFN(IFN):
     ## Interaction Algebraic Basic Operations
