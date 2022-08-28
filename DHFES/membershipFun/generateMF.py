@@ -113,24 +113,8 @@ def gauss2mf(x, mean1, sigma1, mean2, sigma2):
 
 def gbellmf(x, a, b, c):
     """
-    广义贝尔函数，x 表示自变量，a 表示宽度，b 表示斜率，c 表示偏差或中心点
-
-    Definition of Generalized Bell function is:
-
+        广义贝尔函数，x 表示自变量，a 表示宽度，b 表示斜率，c 表示偏差或中心点
+        Definition of Generalized Bell function is:
         y(x) = 1 / (1 + abs([x - c] / a) ** [2 * b])
     """
     return 1. / (1. + np.abs((x - c) / a) ** (2 * b))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
