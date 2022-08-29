@@ -3,6 +3,9 @@ import numpy as np
 def sigmf(x, b, c):
     """
         基本激活函数，x 表示一个自变量，b 表示左右偏差或偏离，c 表示激活区域，c 越大越平坦
+        ======================================================================
+        输入：
+            x: np.array数据类型，也可以是一个值，表示自变量
     """
     return 1. / (1. + np.exp(- c * (x - b)))
 
@@ -14,6 +17,8 @@ def trimf(x, abc):
     a, b, c = np.r_[abc]     # Zero-indexing in Python
     assert a <= b and b <= c, 'abc requires the three elements a <= b <= c.'
 
+    if type(x)!= np.ndarray:
+        x = np.array([x])
     y = np.zeros(len(x))
 
     # Left side
@@ -28,6 +33,8 @@ def trimf(x, abc):
 
     idx = np.nonzero(x == b)
     y[idx] = 1
+    if len(y) == 1:
+        return y[0]
     return y
 
 def zmf(x, a, b):
@@ -36,7 +43,9 @@ def zmf(x, a, b):
         Z 函数形状如同一个大写字母 Z
     """
     assert a <= b, 'a <= b is required.'
-
+    
+    if type(x)!= np.ndarray:
+        x = np.array([x])
     y = np.ones(len(x))
 
     idx = np.logical_and(a <= x, x < (a + b) / 2.)
@@ -47,7 +56,8 @@ def zmf(x, a, b):
 
     idx = x >= b
     y[idx] = 0
-
+    if len(y) == 1:
+        return y[0]
     return y
 
 def trapmf(x, abcd):
@@ -58,6 +68,8 @@ def trapmf(x, abcd):
     a, b, c, d = np.r_[abcd]
     assert a <= b and b <= c and c <= d, 'abcd requires the four elements \
                                           a <= b <= c <= d.'
+    if type(x)!= np.ndarray:
+        x = np.array([x])
     y = np.ones(len(x))
 
     idx = np.nonzero(x <= b)[0]
@@ -71,7 +83,8 @@ def trapmf(x, abcd):
 
     idx = np.nonzero(x > d)[0]
     y[idx] = np.zeros(len(idx))
-
+    if len(y) == 1:
+        return y[0]
     return y
 
 def smf(x, a, b):
@@ -79,6 +92,8 @@ def smf(x, a, b):
         S 函数，形状如 S 一样，与激活函数类似，a 表示从 0 开始爬升的点，b 表示趋于 1 的平稳的点
     """
     assert a <= b, 'a <= b is required.'
+    if type(x)!= np.ndarray:
+        x = np.array([x])
     y = np.ones(len(x))
     idx = x <= a
     y[idx] = 0
@@ -88,7 +103,8 @@ def smf(x, a, b):
 
     idx = np.logical_and((a + b) / 2. <= x, x <= b)
     y[idx] = 1 - 2. * ((x[idx] - b) / (b - a)) ** 2.
-
+    if len(y) == 1:
+        return y[0]
     return y
 
 def gaussmf(x, mean, sigma):
@@ -104,11 +120,15 @@ def gauss2mf(x, mean1, sigma1, mean2, sigma2):
         当 mean1<=x<=mean2 时，函数值为 1
     """
     assert mean1 <= mean2, 'mean1 <= mean2 is required.  See docstring.'
+    if type(x)!= np.ndarray:
+        x = np.array([x])
     y = np.ones(len(x))
     idx1 = x <= mean1
     idx2 = x > mean2
     y[idx1] = gaussmf(x[idx1], mean1, sigma1)
     y[idx2] = gaussmf(x[idx2], mean2, sigma2)
+    if len(y) == 1:
+        return y[0]
     return y
 
 def gbellmf(x, a, b, c):

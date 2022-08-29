@@ -191,7 +191,8 @@ class MemshipFC(object):
         for j in range(self.numFunc):
             plt.plot(x,y[j],label=st+': '+self.memFunc+'_%d'%(j+1))
         plt.grid(linestyle='-.')
-        plt.legend()
+        # plt.legend()
+        plt.show()
         
     def calculate_MD(self,x):
         """

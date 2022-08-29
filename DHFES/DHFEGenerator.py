@@ -158,8 +158,8 @@ class DHFEGenerator(object):
         
         MD  = self.mf.calculate_MD(x)
         NMD = self.nmf.calculate_MD(y)
-        assert np.max(MD)**self.qrung+np.max(NMD)**self.qrung<=1,'The MD^'+str(self.qrung)+'+NMD^'+str(self.qrung)+'>=1 or <=0. Please reset the parameters'
-        
+        assert np.max(MD)**self.qrung+np.max(NMD)**self.qrung<=1,'The MD^'+str(self.qrung)+'+NMD^'+str(self.qrung)+'<=1 and >=0. Please reset the parameters'
+        assert np.min(MD)**self.qrung+np.min(NMD)**self.qrung>=0,'The MD^'+str(self.qrung)+'+NMD^'+str(self.qrung)+'<=1 and >=0. Please reset the parameters'
         newDHFE.MD  = self.mf.calculate_MD(x)
         newDHFE.NMD = self.nmf.calculate_MD(y)
         
