@@ -75,7 +75,7 @@ class DHFEGenerator(object):
         
     def set_NMF(self,NMFunc):
         """
-            设置隶属度函数
+            设置非隶属度函数
             NMFunc: Str 类型，表示非隶属函数种类
         """
         assert NMFunc=='sigmf' or NMFunc=='trimf' or NMFunc=='zmf' or NMFunc=='smf' or NMFunc=='gaussmf' or NMFunc=='gauss2mf' or NMFunc=='gbellmf' or NMFunc=='trapmf'\
