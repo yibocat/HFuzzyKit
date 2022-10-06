@@ -1,11 +1,12 @@
-import math
-from math import *
+import numpy as np
+np.set_printoptions(suppress=True) ## 非科学计数法
+np.set_printoptions(precision=4)
 
 ## Algebraic t-norm & t-conorm
 def algebraic_tau(x):
-    return -math.log2(x)
+    return -np.log2(x)
 def in_algebraic_tau(x):
-    return 1/math.pow(2,x)
+    return 1/(2**x)
 def algebraic_s(x):
     return algebraic_tau(1-x)
 def in_algebraic_s(x):
@@ -25,13 +26,13 @@ def pithy_algebraic_S(x,y):
 
 ## Einstein t-norm & t-conorm
 def einstein_tau(x):
-    return log2((2-x)/x)
+    return np.log2((2-x)/x)
 def in_einstein_tau(x):
-    return 2/(pow(2,x)+1)
+    return 2/((2**x)+1)
 def einstein_s(x):
-    return log2((1+x)/(1-x))
+    return np.log2((1+x)/(1-x))
 def in_einstein_s(x):
-    return (pow(2,x)-1)/(pow(2,x)+1)
+    return (2**x-1)/(2**x+1)
 
 def einstein_T(x,y):
     return in_einstein_tau(einstein_tau(x)+einstein_tau(y))
@@ -44,5 +45,3 @@ def pithy_einstein_T(x,y):
 def pithy_einstein_S(x,y):
     # the pithy einstein S function
     return (x+y)/(1+x*y)
-
-## Harmacher t-norm & t-conrom

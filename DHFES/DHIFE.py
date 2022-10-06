@@ -6,7 +6,7 @@ class DHIFE(object):
     def __init__(self,MD,NMD):
         MD = np.asarray(MD)
         NMD = np.asarray(NMD)
-        assert (MD.size==0 or NMD.size==0) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1),'ERROE:Construction failed! DHIFE max(MD)+max(NMD) and min(MD)+min(NMD) must be in interval[0,1]!'
+        assert (MD.size==0 or NMD.size==0) or (max(MD)<=1 and max(NMD)<=1 and min(MD)>=0 and min(NMD)>=0) and (0<=max(MD)+max(NMD)<=1 and 0<=min(MD)+min(NMD)<=1),'ERROR:Construction failed! DHIFE max(MD)+max(NMD) and min(MD)+min(NMD) must be in interval[0,1]!'
         self.MD = MD
         self.NMD = NMD
 
