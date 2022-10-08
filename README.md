@@ -73,17 +73,15 @@ from DHFES.DHFEGenerator import *
 import numpy as np
 from matplotlib import pyplot as plt
 
-x = DHFEGenerator(3)  ## 创建一个对偶犹豫费马模糊元素生成器
+def func_test(x,*p):                   ## 自定义一个隶属函数
+    return 1/(p[0]*x**2+p[1]*x+p[2])
 
-x.set_MF('gaussmf')		## 隶属函数为高斯函数
-x.set_NMF('gaussmf')	## 非隶属函数为高斯函数
-x.set_MF_Num(3)			## 隶属函数个数为 3 个
-x.set_NMF_Num(4)		## 非隶属函数个数为 4 个
-x.set_MF_parameters([(4,1.36),(2.23,2.07),(4,3)])							## 设置隶属函数的参数
-x.set_NMF_parameters([(7.31,5.47),(7.98,3.28),(5.44,1.69),(8.26,6.22)])		## 设置非隶属函数参数
+x = DHFEGenerator(3,True)  ## 创建一个对偶犹豫费马模糊元素生成器,隶属函数使用自定义函数
 
-x.set_Variable(0,10,100)		## 设置自变量范围: 0-1 间隔 100
-x.generator_function()			## 开始生成
+x.MFgeneratorSet(func_test,3,[[2,5,3],[2,6,7],[2,2,5]])  #设置隶属函数
+x.NMFgeneratorSet(func_test,2,[[3,2,3],[2,2,2]])         #设置非隶属函数
+x.set_Variable(0,10,100)                                 ## 设置自变量范围
+x.generator_function()                                   ## 生成
 
 x.generator_DHFE(6,4)			## 生成隶属自变量为 6，非隶属自变量为 4 的 DHFFE
 >>
