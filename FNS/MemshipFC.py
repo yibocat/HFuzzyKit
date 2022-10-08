@@ -60,51 +60,51 @@ class MemshipFC(object):
         self._variable_end = end
         self._linspace = linspace
 
-    # def _generateMF(self,x):
-    #     '''
-    #         生成函数隶属度
-    #     '''
-    #     y = 0
-    #     if self.memFunc == 'sigmf':
-    #         y=sigmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
-    #     if self.memFunc == 'zmf':
-    #         y=zmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
-    #     if self.memFunc == 'smf':
-    #         y=smf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
-    #     if self.memFunc == 'gaussmf':
-    #         y=gaussmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
-    #     if self.memFunc == 'gauss2mf':
-    #         y=gauss2mf(x,self.parameter[0],self.parameter[1],self.parameter[2],self.parameter[3])-self._min_generateMF()
-    #     if self.memFunc == 'gbellmf':
-    #         y=gbellmf(x,self.parameter[0],self.parameter[1],self.parameter[2])-self._min_generateMF()
-    #     if self.memFunc == 'trimf':
-    #         y=trimf(x,self.parameter)-self._min_generateMF()
-    #     if self.memFunc == 'trapmf':
-    #         y=trapmf(x,self.parameter)-self._min_generateMF()
-    #     return y
-
     def _generateMF(self,x):
         '''
             生成函数隶属度
         '''
         y = 0
         if self.memFunc == 'sigmf':
-            y=sigmf(x,self.parameter[0],self.parameter[1])
+            y=sigmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
         if self.memFunc == 'zmf':
-            y=zmf(x,self.parameter[0],self.parameter[1])
+            y=zmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
         if self.memFunc == 'smf':
-            y=smf(x,self.parameter[0],self.parameter[1])
+            y=smf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
         if self.memFunc == 'gaussmf':
-            y=gaussmf(x,self.parameter[0],self.parameter[1])
+            y=gaussmf(x,self.parameter[0],self.parameter[1])-self._min_generateMF()
         if self.memFunc == 'gauss2mf':
-            y=gauss2mf(x,self.parameter[0],self.parameter[1],self.parameter[2],self.parameter[3])
+            y=gauss2mf(x,self.parameter[0],self.parameter[1],self.parameter[2],self.parameter[3])-self._min_generateMF()
         if self.memFunc == 'gbellmf':
-            y=gbellmf(x,self.parameter[0],self.parameter[1],self.parameter[2])
+            y=gbellmf(x,self.parameter[0],self.parameter[1],self.parameter[2])-self._min_generateMF()
         if self.memFunc == 'trimf':
-            y=trimf(x,self.parameter)
+            y=trimf(x,self.parameter)-self._min_generateMF()
         if self.memFunc == 'trapmf':
-            y=trapmf(x,self.parameter)
+            y=trapmf(x,self.parameter)-self._min_generateMF()
         return y
+
+    # def _generateMF(self,x):
+    #     '''
+    #         生成函数隶属度
+    #     '''
+    #     y = 0
+    #     if self.memFunc == 'sigmf':
+    #         y=sigmf(x,self.parameter[0],self.parameter[1])
+    #     if self.memFunc == 'zmf':
+    #         y=zmf(x,self.parameter[0],self.parameter[1])
+    #     if self.memFunc == 'smf':
+    #         y=smf(x,self.parameter[0],self.parameter[1])
+    #     if self.memFunc == 'gaussmf':
+    #         y=gaussmf(x,self.parameter[0],self.parameter[1])
+    #     if self.memFunc == 'gauss2mf':
+    #         y=gauss2mf(x,self.parameter[0],self.parameter[1],self.parameter[2],self.parameter[3])
+    #     if self.memFunc == 'gbellmf':
+    #         y=gbellmf(x,self.parameter[0],self.parameter[1],self.parameter[2])
+    #     if self.memFunc == 'trimf':
+    #         y=trimf(x,self.parameter)
+    #     if self.memFunc == 'trapmf':
+    #         y=trapmf(x,self.parameter)
+    #     return y
 
 
     def _min_generateMF(self):
