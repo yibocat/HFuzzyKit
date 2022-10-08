@@ -52,7 +52,7 @@ from DHFES.Archimedean import (algebraic_tau,in_algebraic_tau,algebraic_s,in_alg
                         einstein_tau,in_einstein_tau,einstein_s,in_einstein_s,
                         einstein_T,einstein_S,pithy_einstein_T,pithy_einstein_S)
 
-__all__ +=['MemshipFC','DHFEGenerator','BulitMemshipFC']
+__all__ +=['MemshipFC','DHFEGenerator','CustomMemshipFC']
 from .MemshipFC import MemshipFC
-from .BulitMemshipFC import BulitMemshipFC
+from .CustomMemshipFC import CustomMemshipFC
 from .DHFEGenerator import DHFEGenerator

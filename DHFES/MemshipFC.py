@@ -1,4 +1,4 @@
-from DHFES.membershipFun import *
+from membershipFun import *
 import numpy as np
 from matplotlib import pyplot as plt
 

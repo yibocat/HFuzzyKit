@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-class BulitMemshipFC(object):
+class CustomMemshipFC(object):
     '''
         自建隶属函数生成器
         ========================================================================================
@@ -82,7 +82,7 @@ class BulitMemshipFC(object):
             可以理解为该函数的系数
         '''
         min_mf = []
-        x = x = np.linspace(self._variable_start,self._variable_end,self._linspace)
+        x = np.linspace(self._variable_start,self._variable_end,self._linspace)
         for i in range(self.numFunc):
             min_mf.append(min(self.ArbFunc(x, *self.parameter[i])))
         return min_mf

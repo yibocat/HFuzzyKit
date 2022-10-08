@@ -1,7 +1,7 @@
 # import numpy as np
 from DHFES import DHIFE,DHPFE,DHFFE
 from DHFES.MemshipFC import *
-from DHFES.BulitMemshipFC import *
+from DHFES.CustomMemshipFC import *
 
 class DHFEGenerator(object):
     '''
@@ -23,8 +23,8 @@ class DHFEGenerator(object):
             MFunc, NMFunc:  当 customFunc 为 False 时，MFunc 和 NMFunc 表示内建隶属函数的函数名，‘str’类型
                             当 customFunc 为 True 时，MFunc 和 NMFunc 表示自定义函数本身，‘Function’ 类型
 
-            mf 表示生成的隶属函数集合，MemshipFC 类型或 BulitMemshipFC 类型
-            nmf 表示生成的非隶属函数集合，MemshipFC 类型或 BulitMemshipFC 类型
+            mf 表示生成的隶属函数集合，MemshipFC 类型或 CustomMemshipFC 类型
+            nmf 表示生成的非隶属函数集合，MemshipFC 类型或 CustomMemshipFC 类型
         方法：
             MFgeneratorSet(self,MFunc,MFnum,MFparas) 表示隶属函数设置
             NMFgeneratorSet(self,NMFunc,NMFnum,NMFparas) 表示非隶属函数设置
@@ -66,8 +66,8 @@ class DHFEGenerator(object):
         else:
             self.MFunc = None
             self.NMFunc = None
-            self.mf  = BulitMemshipFC(self.MFunc,self.MF_parameter,self.numMFC)
-            self.nmf = BulitMemshipFC(self.NMFunc,self.NMF_parameter,self.numNMFC)
+            self.mf  = CustomMemshipFC(self.MFunc,self.MF_parameter,self.numMFC)
+            self.nmf = CustomMemshipFC(self.NMFunc,self.NMF_parameter,self.numNMFC)
     
     def __repr__(self):
         return 'Membership function:\n'+str(self.mf) +'\n'+'Non-Membership function:\n'+str(self.nmf)
@@ -145,8 +145,8 @@ class DHFEGenerator(object):
             self.nmf = MemshipFC(self.NMFunc,self.NMF_parameter,self.numNMFC)
         else:
             assert hasattr(self.MFunc,'__call__') and hasattr(self.NMFunc,'__call__'),'ERROR:The MFunc and NMFunc are not function type!'
-            self.mf  = BulitMemshipFC(self.MFunc,self.MF_parameter,self.numMFC)
-            self.nmf = BulitMemshipFC(self.NMFunc,self.NMF_parameter,self.numNMFC)
+            self.mf  = CustomMemshipFC(self.MFunc,self.MF_parameter,self.numMFC)
+            self.nmf = CustomMemshipFC(self.NMFunc,self.NMF_parameter,self.numNMFC)
         
         self.mf.setvariable(self._variable_start,self._variable_end,self._linspace)
         self.nmf.setvariable(self._variable_start,self._variable_end,self._linspace)
