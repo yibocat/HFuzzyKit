@@ -2,30 +2,28 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 class CustomMemshipFC(object):
-    '''
-        自定义隶属函数生成器
-    '''
 
-    parameter = []
     ArbFunc = None
+    upp_para = []
+    low_para = []
 
     _variable_start = 0
     _variable_end = 1
     _linspace = 100
 
-    def __init__(self,ArbFunc,parameter):
-        assert hasattr(ArbFunc,'__call__') or ArbFunc==None, 'ERROR: The membership function has to be a function!'
-        assert type(parameter) == list, 'ERROR:The self-bulit function\'s parameter type is error! Parameter type should be list!'
-
+    def __init__(self,ArbFunc,low_para,upp_para):
+        assert hasattr(ArbFunc,'__call__') or ArbFunc == None, 'ERROR: The membership function has to be a function!'
+        assert len(upp_para) == len(low_para), 'ERROR: Arguments to the same function must be equal.'
         self.ArbFunc = ArbFunc
-        self.parameter = np.asarray(parameter)
+        self.low_para = np.asarray(low_para)
+        self.upp_para = np.asarray(upp_para)
 
     def __repr__(self):
         '''
             打印隶属函数信息
         '''
-        return 'Function : %s, parameters: %s'%(self.ArbFunc.__name__,self.parameter)
-    
+        return 'Function: %s\nLower limit membership parameter: '%self.ArbFunc.__name__ + str(self.low_para) +'\nUpper limit membership parameter: ' + str(self.upp_para)
+
     def setvariable(self,start,end,linspace):
         """
             设置自变量变化范围，返回一个 start-end ，间隔为 linspace 的 array
@@ -36,11 +34,9 @@ class CustomMemshipFC(object):
         self._linspace = linspace
 
     def _generateMF(self,x):
-        '''
-            生成函数的隶属度，组成一个列表集合
-        '''
-        return self.ArbFunc(x, *self.parameter)-self._min_generateMF()
-        # return self.ArbFunc(x, *self.parameter)
+        y_low = self.ArbFunc(x,*self.low_para)-self._min_generateMF()[0]
+        y_upp = self.ArbFunc(x,*self.upp_para)-self._min_generateMF()[1]
+        return [y_low,y_upp]
 
     def _min_generateMF(self):
         '''
@@ -48,17 +44,20 @@ class CustomMemshipFC(object):
             该函数的作用是将隶属函数沿 y 轴方向向下平移最小值个单位，保证隶属函数的值 <= 1
             可以理解为该函数的系数
         '''
-        min_mf = []
+        min_mf_low,min_mf_upp = [],[]
         x = np.linspace(self._variable_start,self._variable_end,self._linspace)
-        min_mf=min(self.ArbFunc(x, *self.parameter))
-        return min_mf
-    
+        min_mf_low = min(self.ArbFunc(x, *self.low_para))
+        min_mf_upp = min(self.ArbFunc(x, *self.upp_para))
+        return [min_mf_low,min_mf_upp]
+
     def _max_generateMF(self):
-        '''
-            计算隶属函数在自变量范围内的最大值
-        '''
+        """
+            计算上下限隶属函数在自变量范围内的最大值
+        """
         x = np.linspace(self._variable_start,self._variable_end,self._linspace)
-        return max(self._generateMF(x))
+        max_mf_low=max(self._generateMF(x)[0])
+        max_mf_upp=max(self._generateMF(x)[1])
+        return [max_mf_low,max_mf_upp]
 
     def get_min_generateMF(self):
         """
@@ -81,15 +80,18 @@ class CustomMemshipFC(object):
         x = np.linspace(self._variable_start,self._variable_end,self._linspace)
         y = self._generateMF(x)
         plt.figure(figsize=(8,5))
-        p = []
-        plt.plot(x,y,label=st+': '+self.ArbFunc.__name__)
+        # for j in range(1):
+        plt.plot(x,y[0],label=st+':Lower limit of membership')
+        plt.plot(x,y[1],label=st+':Upper limit of membership')
         plt.grid(linestyle='-.')
         plt.legend()
         plt.show()
-
+    
     def calculate_MD(self,x):
-        """
-            通过隶属度方程，计算隶属度集合
-        """
+        '''
+            通过上限隶属度函数和下限隶属度函数计算隶属度
+        '''
         y = self._generateMF(x)
+        if y[0]>y[1]:
+            y[0],y[1] = y[1],y[0]
         return np.array(y)

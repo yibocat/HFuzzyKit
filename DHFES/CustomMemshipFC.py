@@ -40,6 +40,7 @@ class CustomMemshipFC(object):
     def __init__(self,ArbFunc,parameter,numFunc):
         assert len(parameter) == numFunc,\
         'ERROR!The number of parameters is not equal to numFunc! numFunc=%d means you should create %d sets of parameters'%(numFunc,numFunc)
+        assert hasattr(ArbFunc,'__call__') or ArbFunc == None, 'ERROR: The membership function has to be a function!'
         for para in parameter:
             assert type(para) == list, 'ERROR:The self-bulit function\'s parameter type is error! Parameter type should be list!'
 
@@ -124,7 +125,7 @@ class CustomMemshipFC(object):
         for j in range(self.numFunc):
             plt.plot(x,y[j],label=st+': '+self.ArbFunc.__name__+'_%d'%(j+1))
         plt.grid(linestyle='-.')
-        # plt.legend()
+        plt.legend()
         plt.show()
 
     def calculate_MD(self,x):
