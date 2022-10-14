@@ -4,7 +4,7 @@ from DHFES.MemshipFC import *
 from DHFES.CustomMemshipFC import *
 
 class DHFEGenerator(object):
-    '''
+    """
         对偶犹豫模糊元素生成器
         说明：
             这是一个对偶犹豫模糊元素生成器，利用对偶犹豫模糊隶属度函数生成器生成，有两种方式：
@@ -38,7 +38,7 @@ class DHFEGenerator(object):
             3. 设置自变量范围和间隔
             4. 生成 DHFE
             注意：步骤不可打乱
-    '''
+    """
     
     qrung = 0
     customFunc = False       ## 自定义函数开关，False 表示使用内建函数，True 表示使用自定义函数，默认为 False
