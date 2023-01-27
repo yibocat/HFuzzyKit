@@ -19,9 +19,9 @@ __all__ = ['DHIFE_Intersection',
            'DHFFE_Algebraic_Plus',
            'DHFFE_Einstein_Multiply',
            'DHFFE_Einstein_Plus',
-           'opt_normalized',
-           'pess_normalized',
-           'DHFEs_Distance',
+           'normalization',
+           'stand_distance',
+           'hausdorff_distance',
            'DHFEs_support',
            'Corr_coefficient_1',
            'Corr_coefficient_2',
@@ -32,7 +32,7 @@ __all__ = ['DHIFE_Intersection',
            'DHIFE'
           ]
 
-from .DHFEUtils import (opt_normalized,pess_normalized,DHFEs_Distance,DHFEs_support,
+from .DHFEUtils import (normalization,stand_distance,hausdorff_distance,DHFEs_support,
                         Corr_coefficient_1,Corr_coefficient_2,DHFE_Entropy,randomDHFE)
 
 from .DHIFE import (DHIFE,DHIFE_Algebraic_Multiply,DHIFE_Algebraic_Plus,DHIFE_Einstein_Multiply,DHIFE_Einstein_Plus,
